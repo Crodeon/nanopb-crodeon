@@ -2053,6 +2053,9 @@ class ProtoFile:
             yield '/* Mapping from canonical names (mangle_names or overridden package name) */\n'
             for shortname, longname in pairs:
                 yield '#define %s %s\n' % (longname, shortname)
+                yield '#define _%s_MIN _%s_MIN\n' % (longname, shortname)
+                yield '#define _%s_MAX _%s_MAX\n' % (longname, shortname)
+                yield '#define _%s_ARRAYSIZE _%s_ARRAYSIZE\n' % (longname, shortname)
             yield '\n'
 
         yield '#ifdef __cplusplus\n'
